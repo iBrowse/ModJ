@@ -19,18 +19,19 @@ import com.juraka.modj.player.ModPlayer;
 
 
 @Mod(modid = ModJ.MODID, name = ModJ.MODNAME, version = ModJ.VERSION, dependencies = "required-after:Forge@[12.18.1.2014]", useMetadata = true)
-public class ModJ {
+public class ModJ 
+{
 	public static final String MODID = "modj";
 	public static final String MODNAME = "ModJ";
 	public static final String VERSION = "0.0.1";
 
-    @SidedProxy
-    public static CommonProxy proxy;
+	@SidedProxy
+	public static CommonProxy proxy;
     
-    @Mod.Instance
-    public static ModJ instance;
+	@Mod.Instance
+	public static ModJ instance;
     
-    public static Logger logger;
+	public static Logger logger;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -73,14 +74,12 @@ public class ModJ {
     	}
     	
     }
+    
     /**
      * Initialization specifically for the client
-     * @author DMT
-     * 
      */
     public static class ClientProxy extends CommonProxy
     {
-    	
     	@Override
     	public void preInit(FMLPreInitializationEvent e)
     	{
@@ -107,8 +106,6 @@ public class ModJ {
     
     /**
      * Initialization specifically for the server
-     * @author DMT
-     *
      */
     public static class ServerProxy extends CommonProxy
     {

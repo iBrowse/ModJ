@@ -6,11 +6,13 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import com.juraka.modj.network.PacketHandler;
 import com.juraka.modj.network.PacketSendKey;
 
-public class InputHandler {
-	
+public class InputHandler 
+{
 	@SubscribeEvent
-	public void onKeyInput(InputEvent.KeyInputEvent e) {
-		if (KeyBindings.tHelpKey.isPressed()) {
+	public void onKeyInput(InputEvent.KeyInputEvent e) 
+	{
+		if (KeyBindings.tHelpKey.isPressed()) 
+		{
 			//someone pressed the help button
 			PacketHandler.INSTANCE.sendToServer(new PacketSendKey());
 		}
