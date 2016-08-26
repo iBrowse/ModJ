@@ -52,7 +52,11 @@ public class ModJ
         proxy.postInit(e);
     }
     
-    public static class CommonProxy {
+    /**
+     * Initialization common to both sides
+     */
+    public static class CommonProxy
+    {
     	
     	public void preInit(FMLPreInitializationEvent e)
     	{
@@ -60,8 +64,8 @@ public class ModJ
     		
     		ModBlocks.init();
     		ModItems.init();
-    		
-    		//TODO modPlayer = new ModPlayer(EntityPlayer)
+    		ModEntities.init();
+    		//TODO ModPlayer.init(); here or later? When is MCPlayer instantiated?
     	}
     	
     	public void init(FMLInitializationEvent e)
@@ -86,7 +90,10 @@ public class ModJ
     		super.preInit(e);
     		
     		ModBlocks.initModels();
+    		ModBlocks.initItemModels();
     		ModItems.initModels();
+    		ModEntities.initModels();
+    		
     	}
     	
     	@Override
@@ -98,10 +105,14 @@ public class ModJ
     		MinecraftForge.EVENT_BUS.register(new InputHandler());
     		KeyBindings.init();
     		
-    		ModBlocks.initItemModels();
+    		
     		//TODO ModPlayer.init();
     	}
     	
+    	public void postInit(FMLPostInitializationEvent e)
+    	{
+    		
+    	}
     }
     
     /**
@@ -109,7 +120,20 @@ public class ModJ
      */
     public static class ServerProxy extends CommonProxy
     {
-
+    	public void preInit(FMLPreInitializationEvent e)
+    	{
+    		
+    	}
+    	
+    	public void init(FMLInitializationEvent e)
+    	{
+    		
+    	}
+    	
+    	public void postInit(FMLPostInitializationEvent e)
+    	{
+    		
+    	}
     }
 
 }

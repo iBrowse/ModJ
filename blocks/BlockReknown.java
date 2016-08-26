@@ -25,7 +25,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockReknown extends Block 
 {
-	
 	private int amount;
 	
 	public boolean isReknownBlock = true;
@@ -62,7 +61,11 @@ public class BlockReknown extends Block
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
 	{
-		if (!worldIn.isRemote)
+		if (worldIn.isRemote)
+		{
+			return true;
+		}
+		else
 		{
 			this.dispenseReknown(worldIn, pos, 1);
 		}
